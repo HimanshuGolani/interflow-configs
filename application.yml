@@ -1,0 +1,32 @@
+server:
+  port: 8888
+
+spring:
+  application:
+     name: ConfigServer
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    registry-with-eureka: true
+    serviceUrl:
+      defaultZone: http://eureka-server-host:8761/eureka/
+
+datasource:
+  url: jdbc:postgresql://localhost:5432/interflow-db
+  username: himanshu
+  password: himanshu
+  driver-class-name: org.postgresql.Driver
+
+  # JPA/Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update  # Options: create, create-drop, validate, update, none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
